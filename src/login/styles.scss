@@ -1,0 +1,21 @@
+.login {
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.login-inner-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/images/splash1.jpg');
+  background-size: cover;
+}
+button {
+  width: 15vw;
+  height: 5vh;
+}
