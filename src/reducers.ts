@@ -1,6 +1,7 @@
 import { reducer as oidcReducer } from 'redux-oidc';
 import { combineReducers } from 'redux'
+import { StoreState } from './types'
 
-export default combineReducers<any>({
+export default combineReducers<StoreState>({
   oidc: oidcReducer
 })

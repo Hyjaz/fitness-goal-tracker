@@ -10,24 +10,27 @@ const mapStateToProps = (state: any) => {
   };
 }
 class Login extends React.Component<any, any> {
+  componentWillMount() {
+    userManager.getUser().then(user => {
+      if (user) {
+        this.props.history.push('/main')
+      }
+    })
+  }
   public login() {
     userManager.signinRedirect();
   }
   public render() {
     return (
       <div className='login-inner-container'>
-        {
-          this.props.oidc.user ?
-            this.props.history.push('/main') :
-            <div className="login">
-              <div className='login-title'>
-                Fitness Goal Tracker
+        <div className="login">
+          <div className='login-title'>
+            Fitness Goal Tracker
           </div>
-              <div className="login-button">
-                <Button variant='contained' color='primary' onClick={this.login}>Login</Button>
-              </div>
-            </div>
-        }
+          <div className="login-button">
+            <Button variant='contained' color='primary' onClick={this.login}>Login</Button>
+          </div>
+        </div>
       </div>
 
     )

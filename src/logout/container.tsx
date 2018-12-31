@@ -8,7 +8,13 @@ import './styles.scss'
 class Logout extends React.Component<any, any> {
   logout = () => {
     userManager.removeUser()
-    this.props.history.push('/');
+    userManager.getUser().then(user => {
+      if (!user) {
+        this.props.history.push('/');
+      } else {
+        userManager.removeUser()
+      }
+    })
   }
   public render() {
     return (
