@@ -10,6 +10,6 @@ module.exports = merge({
       // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
-  })
+    })
   ],
 }, common)

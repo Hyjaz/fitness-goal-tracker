@@ -1,4 +1,3 @@
-const path = require('path');
 const configPaths = require('./config.path');
 
 module.exports = {
