@@ -1,12 +1,13 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+
+import { history, store } from './store'
 
 import App from './App'
-import { store, history } from './store'
 import { OidcProvider } from 'redux-oidc'
-import userManager from './userManager'
+import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
+import userManager from './userManager'
 
 ReactDOM.render(
   <Provider store={store}>

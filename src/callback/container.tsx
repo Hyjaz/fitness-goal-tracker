@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 
 class Callback extends React.Component<any, any> {
   onSuccess = () => {
-    this.props.history.push('/main');
+    this.props.history.push('/dashboard');
   }
 
   onFailure = () => {

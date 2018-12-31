@@ -10,7 +10,7 @@ class Login extends React.Component<any, any> {
   componentWillMount() {
     userManager.getUser().then(user => {
       if (user) {
-        this.props.history.push('/main')
+        this.props.history.push('/dashboard')
       }
     })
   }

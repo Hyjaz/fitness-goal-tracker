@@ -1,6 +1,9 @@
-import * as React from 'react'
-import ProgressBar from './ProgressBar/component';
 import './styles.scss'
+
+import * as React from 'react'
+
+import ProgressBar from './ProgressBar/component';
+
 export default class Diagram extends React.Component {
   public render() {
     return (
