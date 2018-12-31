@@ -1,0 +1,35 @@
+.inner-diagram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.outer-progressbar-one {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  .inner-progressbar-one {
+    display: grid;
+    grid-column: 3/4;
+    align-items: center;
+  }
+}
+
+.outer-progressbar-two {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  .inner-progressbar-two {
+    display: grid;
+    grid-column: 2/3;
+    align-items: center;
+  }
+}
+
+.outer-progressbar-three {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  .inner-progressbar-three {
+    display: grid;
+    grid-column: 1/2;
+    align-items: center;
+  }
+}
