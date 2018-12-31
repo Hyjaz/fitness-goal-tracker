@@ -1,14 +1,11 @@
-import * as React from 'react'
-import userManager from '../userManager'
-import Button from '@material-ui/core/Button';
 import './styles.scss'
+
+import * as React from 'react'
+
+import Button from '@material-ui/core/Button';
+import userManager from '../userManager'
 import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-const mapStateToProps = (state: any) => {
-  return {
-    oidc: state.oidc,
-  };
-}
+
 class Login extends React.Component<any, any> {
   componentWillMount() {
     userManager.getUser().then(user => {
@@ -37,4 +34,4 @@ class Login extends React.Component<any, any> {
   }
 }
 
-export default withRouter(connect(mapStateToProps, null)(Login) as any)
+export default withRouter(Login)

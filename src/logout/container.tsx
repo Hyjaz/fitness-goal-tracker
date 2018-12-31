@@ -1,9 +1,10 @@
+import './styles.scss'
+
 import * as React from 'react'
+
+import Button from '@material-ui/core/Button';
 import userManager from '../userManager'
 import { withRouter } from 'react-router';
-import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button';
-import './styles.scss'
 
 class Logout extends React.Component<any, any> {
   logout = () => {
@@ -20,4 +21,4 @@ class Logout extends React.Component<any, any> {
   }
 }
 
-export default withRouter(connect()(Logout) as any)
+export default withRouter(Logout)

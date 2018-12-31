@@ -1,15 +1,10 @@
 import * as React from 'react'
-import Navbar from '../navbar/container'
-import Diagram from '../diagrams/component'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import userManager from '../userManager';
 
-const mapStateToProps = (state: any) => {
-  return {
-    oidc: state.oidc,
-  };
-}
+import Diagram from '../diagrams/component'
+import Navbar from '../navbar/container'
+import userManager from '../userManager';
+import { withRouter } from 'react-router-dom'
+
 class Dashboard extends React.Component<any, any> {
   componentWillMount() {
     userManager.getUser().then(user => {
@@ -31,4 +26,4 @@ class Dashboard extends React.Component<any, any> {
   }
 }
 
-export default withRouter(connect(mapStateToProps, null)(Dashboard) as any)
+export default withRouter(Dashboard)
