@@ -8,7 +8,6 @@ import Main from './dashboard/container'
 
 export default class App extends React.Component<any, any>{
   public render(): JSX.Element {
-    console.log('inside App')
     return (
       <BrowserRouter>
         <Switch>
@@ -20,5 +19,3 @@ export default class App extends React.Component<any, any>{
     )
   }
 }
-
-
