@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { BrowserRouter, Route, Switch/*, Redirect*/ } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import CallbackPage from './callback/container'
 import Login from './login/component'
 import './style.scss'
 import Main from './dashboard/container'
-
 
 export default class App extends React.Component<any, any>{
   public render(): JSX.Element {
