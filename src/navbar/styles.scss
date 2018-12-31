@@ -1,7 +1,7 @@
 
 .navbar {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   padding-top: 1rem;
 }
 
@@ -17,7 +17,6 @@
 
 .outer-logout {
   display: grid;
-  grid-column: 3/4;
   justify-content: right;
   padding-right: 1rem;
 }

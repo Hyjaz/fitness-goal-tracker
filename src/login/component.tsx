@@ -11,7 +11,12 @@ export default class Login extends React.Component<any, any> {
     return (
       <div className='login-inner-container'>
         <div className="login">
-          <Button variant='contained' color='primary' onClick={this.login}>Login</Button>
+          <div className='login-title'>
+            Fitness Goal Tracker
+          </div>
+          <div className="login-button">
+            <Button variant='contained' color='primary' onClick={this.login}>Login</Button>
+          </div>
         </div>
       </div>
     )
