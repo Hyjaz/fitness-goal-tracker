@@ -1,0 +1,24 @@
+.cycle_dialog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1rem;
+}
+
+.DateRangePickerInput {
+  width: 100%;
+}
+.DateRangePicker {
+  width: 100%;
+}
+.mui_button_overwrite {
+  margin-left: 1rem;
+  grid-column: 3/4;
+}
+
+.date_picker_overwrite {
+  grid-column: 2/3;
+}
+
+.DateInput_input {
+  padding: 10px;
+}

@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import Diagram from '../diagrams/component'
 import Navbar from '../navbar/container'
+import Nutrition from '../nutrition/container';
 import userManager from '../userManager';
 import { withRouter } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ class Dashboard extends React.Component<any, any> {
         <div className='outer-container'>
           <Navbar />
           <Diagram />
+          <Nutrition />
         </div>
       </div >
     )

@@ -1,4 +1,5 @@
 import './style.scss'
+import 'react-dates/initialize';
 
 import * as React from 'react'
 
