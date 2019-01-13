@@ -11,7 +11,6 @@ const {
 export default function (state = initialState, action: any) {
   switch (action.type) {
     case ADD_CYCLE:
-      console.log('got in cycle')
       return {
         ...state,
         cycle: [...state.cycle, action.payload]

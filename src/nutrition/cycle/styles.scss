@@ -1,22 +1,29 @@
-.cycle_dialog {
+.cycle {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 1rem;
 }
 
-.DateRangePickerInput {
-  width: 100%;
-}
-.DateRangePicker {
-  width: 100%;
-}
-.mui_button_overwrite {
+.cycle_button {
   margin-left: 1rem;
   grid-column: 3/4;
 }
 
-.date_picker_overwrite {
+.cycle_date_picker {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   grid-column: 2/3;
+}
+.cycle_date_picker_inner {
+  grid-column: 2/3;
+}
+// overwritten css from airbnb/react-dates
+.DateRangePickerInput {
+  width: 100%;
+}
+
+.DateRangePicker {
+  width: 100%;
 }
 
 .DateInput_input {

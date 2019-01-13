@@ -1,33 +1,34 @@
-.inner-diagram {
+.inner_diagram {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
 
 }
 
-.outer-progressbar-one {
+.outer_progressbar_one {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  .inner-progressbar-one {
+  .inner_progressbar_one {
     display: grid;
     grid-column: 3/4;
     align-items: center;
   }
 }
 
-.outer-progressbar-two {
+.outer_progressbar_two {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  .inner-progressbar-two {
+  .inner_progressbar_two {
     display: grid;
     grid-column: 2/3;
     align-items: center;
   }
 }
 
-.outer-progressbar-three {
+.outer_progressbar_three {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  .inner-progressbar-three {
+  .inner_progressbar_three {
     display: grid;
     grid-column: 1/2;
     align-items: center;

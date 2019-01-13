@@ -1,8 +1,12 @@
 
 .navbar {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   padding-top: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom-width: thin;
+  border-bottom-color: #bdbdbd;
+  border-bottom-style: solid;
 }
 
 .title {
@@ -14,9 +18,27 @@
   font-size: 2em;
   padding-left: 1rem;
 }
+.navbar_username {
+  display: grid;
+  align-items: center;
+  padding-left: 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5em;
+}
+.navbar_items {
+  display: grid;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5em;
+  div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  }
+}
 
 .outer-logout {
   display: grid;
+  grid-column: 3/4;
   justify-content: right;
   padding-right: 1rem;
 }

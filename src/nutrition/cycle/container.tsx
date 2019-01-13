@@ -1,7 +1,7 @@
 import 'react-dates/lib/css/_datepicker.css';
 import './styles.scss'
 
-import * as Cycle from '../actions'
+import * as CycleActions from '../actions'
 import * as React from 'react'
 
 import { Button } from '@material-ui/core';
@@ -9,10 +9,10 @@ import { DateRangePicker } from 'react-dates'
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = {
-  ...Cycle
+  ...CycleActions
 }
 
-class CycleDialog extends React.Component<any, any> {
+class Cycle extends React.Component<any, any> {
   state = {
     open: false,
     startDate: null,
@@ -33,19 +33,21 @@ class CycleDialog extends React.Component<any, any> {
 
   render() {
     return (
-      <div className='cycle_dialog'>
-        <div className='date_picker_overwrite'>
-          <DateRangePicker
-            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-          />
+      <div className='cycle'>
+        <div className='cycle_date_picker'>
+          <div className='cycle_date_picker_inner'>
+            <DateRangePicker
+              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+              startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+              endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            />
+          </div>
         </div>
-        <div className='mui_button_overwrite'>
+        <div className='cycle_button'>
           <Button variant='contained' color='primary' onClick={this.handleClickOpen}>
             Add Cycle
         </Button>
@@ -55,4 +57,4 @@ class CycleDialog extends React.Component<any, any> {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CycleDialog)
+export default connect(null, mapDispatchToProps)(Cycle)

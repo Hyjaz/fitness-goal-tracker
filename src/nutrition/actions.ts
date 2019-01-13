@@ -1,8 +1,8 @@
-import * as cycleActions from './action-names'
+import * as cycleActionNames from './action-names'
 
 const {
   ADD_CYCLE
-} = cycleActions
+} = cycleActionNames
 
 export const addCycle = (startTime: Date, endTime: Date) => {
   return {

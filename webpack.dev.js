@@ -3,6 +3,7 @@ const common = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = merge({
   mode: 'development',
@@ -17,6 +18,7 @@ module.exports = merge({
       warnings: true,
       errors: true
     },
+    https: true,
     open: true,
   },
   module: {
@@ -44,5 +46,8 @@ module.exports = merge({
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new Dotenv({
+      path: './.env.development',
+    })
   ]
 }, common)

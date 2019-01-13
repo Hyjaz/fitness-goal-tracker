@@ -18,7 +18,7 @@ class Dashboard extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <div className='outer-container'>
+        <div className='outer_container'>
           <Navbar />
           <Diagram />
           <Nutrition />
