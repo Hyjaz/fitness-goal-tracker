@@ -1,6 +1,8 @@
+import './styles.scss'
+
 import * as React from 'react'
 
-import { Avatar, Menu, MenuItem } from '@material-ui/core';
+import { Avatar, Menu, MenuItem } from '@material-ui/core'
 
 import Logout from '../Logout/container'
 
@@ -21,8 +23,8 @@ export default class Settings extends React.Component<any, any> {
 
     const { anchorEl } = this.state
     return (
-      <div>
-        <Avatar onClick={this.handleClick}> HL</Avatar>
+      <div className='settings'>
+        <Avatar onClick={this.handleClick} src={require('../../assets/images/avatardefault.svg')}> HL</Avatar>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
