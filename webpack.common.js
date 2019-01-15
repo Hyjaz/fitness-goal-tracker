@@ -25,11 +25,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
             loader: 'url-loader',
             options: {
+              limit: 8192,
               outputPath: configPaths.imagesFolder
             }
           }
