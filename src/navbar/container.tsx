@@ -1,10 +1,9 @@
 import './styles.scss'
 
 import * as React from 'react'
-
 import { StoreState } from '../types'
 import { connect } from 'react-redux'
-import Settings from '../settings/component';
+import Settings from '../settings/component'
 
 const mapStateToProps = (state: StoreState) => {
   return {
@@ -14,7 +13,6 @@ const mapStateToProps = (state: StoreState) => {
 class Navbar extends React.Component<any, any> {
 
   public render(): JSX.Element {
-    console.log(this.props.oidc)
     return (
       <div className='navbar'>
         <div className='navbar_username'>{this.props.oidc.user ? this.props.oidc.user.profile.name : 'unknown'}</div>
@@ -30,7 +28,7 @@ class Navbar extends React.Component<any, any> {
           </div> */}
         </div>
         <div className="outer-logout">
-          <Settings />
+          <Settings picture={this.props.oidc.user ? this.props.oidc.user.profile.picture : '../../assets/images/avatardefault.svg'} />
         </div>
       </div>
     )

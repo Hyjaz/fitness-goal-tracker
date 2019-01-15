@@ -1,10 +1,19 @@
+import './styles.scss'
+
 import * as React from 'react'
 
-import { Avatar, Menu, MenuItem } from '@material-ui/core';
+import { Avatar, Menu, MenuItem, withStyles } from '@material-ui/core'
 
 import Logout from '../Logout/container'
 
-export default class Settings extends React.Component<any, any> {
+const styles = {
+  bigAvatar: {
+    margin: 10,
+    width: 50,
+    height: 50,
+  },
+};
+class Settings extends React.Component<any, any> {
 
   state = {
     anchorEl: null,
@@ -17,17 +26,26 @@ export default class Settings extends React.Component<any, any> {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+  //TODO: pass image as props
   render() {
-
+    console.log(this.props)
+    const { classes } = this.props
     const { anchorEl } = this.state
     return (
-      <div>
-        <Avatar onClick={this.handleClick}> HL</Avatar>
+      <div className='settings'>
+        <Avatar className={classes.bigAvatar} onClick={this.handleClick} src={this.props.picture} />
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
+          PaperProps={{
+            style: {
+              padding: 0,
+              left: '50%',
+              transform: 'translate(-15%, 43%)'
+            },
+          }}
         >
           <MenuItem onClick={this.handleClose}>Add cycle</MenuItem>
           <MenuItem onClick={this.handleClose}><Logout /></MenuItem>
@@ -36,3 +54,6 @@ export default class Settings extends React.Component<any, any> {
     )
   }
 }
+
+
+export default withStyles(styles)(Settings);
