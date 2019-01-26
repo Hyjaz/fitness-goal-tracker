@@ -1,9 +1,9 @@
 const configPaths = require('./config.path');
 const common = require('./webpack.common');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = merge({
   mode: 'development',

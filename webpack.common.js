@@ -1,4 +1,5 @@
 const configPaths = require('./config.path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -14,6 +15,17 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /.*\.tsx$/,
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              configFileName: configPaths.tsconfig,
+            }
+          }
+        ],
+      },
       { test: /.*\.ts$/, loader: 'awesome-typescript-loader' },
       {
         test: /\.(sa|sc|c)ss$/,
