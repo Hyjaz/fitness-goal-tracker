@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Avatar, Menu, MenuItem, withStyles } from '@material-ui/core'
 
-import Logout from '../Logout/container'
+import Logout from '../logout/container'
 
 const styles = {
   bigAvatar: {
