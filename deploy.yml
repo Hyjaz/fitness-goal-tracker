@@ -36,6 +36,7 @@ spec:
   type: ClusterIP
 
 ---
+# TODO: use regular expression to match paths
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
