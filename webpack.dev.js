@@ -1,7 +1,4 @@
-const configPaths = require('./config.path');
 const common = require('./webpack.common');
-const Dotenv = require('dotenv-webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -21,33 +18,10 @@ module.exports = merge({
     https: true,
     open: true,
   },
-  module: {
-    rules: [
-      {
-        test: /.*\.tsx$/,
-        use: [
-          {
-            loader: 'awesome-typescript-loader',
-            options: {
-              configFileName: configPaths.tsconfig,
-            }
-          }
-        ],
-      },
-    ]
-  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: configPaths.indexTemplate,
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true,
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new Dotenv({
-      path: './.env.development',
-    })
   ]
 }, common)

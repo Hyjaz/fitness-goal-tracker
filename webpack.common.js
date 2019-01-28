@@ -1,4 +1,6 @@
 const configPaths = require('./config.path');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -49,5 +51,13 @@ module.exports = {
         ]
       },
     ],
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: configPaths.indexTemplate,
+    }),
+    new Dotenv({
+      path: process.env.NODE_ENV !== 'production' ? './.env.development' : './.env.production'
+    })
+  ]
 }
