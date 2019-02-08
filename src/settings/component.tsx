@@ -26,9 +26,7 @@ class Settings extends React.Component<any, any> {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-  //TODO: pass image as props
   render() {
-    console.log(this.props)
     const { classes } = this.props
     const { anchorEl } = this.state
     return (
@@ -54,6 +52,5 @@ class Settings extends React.Component<any, any> {
     )
   }
 }
-
 
 export default withStyles(styles)(Settings);

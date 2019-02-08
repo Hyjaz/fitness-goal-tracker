@@ -1,3 +1,7 @@
 export const ADD_CYCLE = 'ADD_CYCLE'
 export const ADD_CYCLE_SUCCESS = 'ADD_CYCLE_SUCCESS'
 export const ADD_CYCLE_FAIL = 'ADD_CYCLE_FAIL'
+
+export const GET_CYCLES = 'GET_CYCLES'
+export const GET_CYCLES_SUCCESS = 'GET_CYCLES_SUCCESS'
+export const GET_CYCLES_FAIL = 'GET_CYCLES_FAIL'

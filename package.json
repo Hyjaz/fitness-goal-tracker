@@ -36,6 +36,7 @@
     "@types/react-router-redux": "^5.0.17",
     "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.6",
+    "axios": "^0.18.0",
     "moment": "^2.23.0",
     "oidc-client": "^1.6.1",
     "react": "^16.7.0",
@@ -51,7 +52,7 @@
     "redux-logger": "^3.0.6",
     "redux-observable": "^1.0.0",
     "redux-oidc": "^3.1.0",
-    "rxjs": "^6.3.3"
+    "rxjs": "^6.4.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.119",
@@ -68,6 +69,7 @@
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "redux-devtools-extension": "^2.13.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "^4.1.3",

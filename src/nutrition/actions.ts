@@ -1,7 +1,8 @@
 import * as cycleActionNames from './action-names'
 
 const {
-  ADD_CYCLE
+  ADD_CYCLE,
+  GET_CYCLES
 } = cycleActionNames
 
 export const addCycle = (startTime: Date, endTime: Date) => {
@@ -10,6 +11,15 @@ export const addCycle = (startTime: Date, endTime: Date) => {
     payload: {
       startTime,
       endTime
+    }
+  }
+}
+
+export const getCycle = (userId: string) => {
+  return {
+    type: GET_CYCLES,
+    payload: {
+      userId
     }
   }
 }

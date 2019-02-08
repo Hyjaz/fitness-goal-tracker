@@ -1,11 +1,12 @@
 const initialState = {
-  cycle: []
+  cycles: []
 }
 
 import * as Cycle from './action-names'
 
 const {
   ADD_CYCLE,
+  GET_CYCLES_SUCCESS
 } = Cycle
 
 export default function (state = initialState, action: any) {
@@ -13,7 +14,12 @@ export default function (state = initialState, action: any) {
     case ADD_CYCLE:
       return {
         ...state,
-        cycle: [...state.cycle, action.payload]
+        cycles: [...state.cycles, action.payload]
+      }
+    case GET_CYCLES_SUCCESS:
+      return {
+        ...state,
+        cycles: action.payload
       }
     default:
       return {

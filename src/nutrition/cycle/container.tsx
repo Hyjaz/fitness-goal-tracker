@@ -6,12 +6,18 @@ import * as React from 'react'
 
 import { Button } from '@material-ui/core';
 import { DateRangePicker } from 'react-dates'
+import { StoreState } from '../../types'
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = {
   ...CycleActions
 }
 
+const mapStateToProps = (state: StoreState) => {
+  return {
+    oidc: state.oidc
+  }
+}
 class Cycle extends React.Component<any, any> {
   state = {
     open: false,
@@ -25,6 +31,8 @@ class Cycle extends React.Component<any, any> {
   }
   handleClickOpen = () => {
     this.setState({ open: true });
+    console.log('in handleclickopen')
+    this.props.getCycle('3')
   };
 
   handleClose = () => {
@@ -57,4 +65,4 @@ class Cycle extends React.Component<any, any> {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Cycle)
+export default connect(mapStateToProps, mapDispatchToProps)(Cycle)

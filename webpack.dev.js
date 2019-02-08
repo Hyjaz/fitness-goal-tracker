@@ -9,7 +9,7 @@ module.exports = merge({
     historyApiFallback: true,
     contentBase: false,
     compress: true,
-    port: 9000,
+    port: 5000,
     hot: true,
     overlay: {
       warnings: true,
