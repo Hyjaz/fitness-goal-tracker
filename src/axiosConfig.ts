@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 var axiosInstance: AxiosInstance
 
 export function defaultAxios(): AxiosInstance {
-  const baseURL = 'http://localhost:8080/'
+  const baseURL = `http://${process.env.BASEURL}`
   if (axiosInstance) {
     return axiosInstance
   }
