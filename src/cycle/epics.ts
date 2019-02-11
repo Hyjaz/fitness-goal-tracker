@@ -37,7 +37,6 @@ export function addCycle(action$: any) {
     ofType(ADD_CYCLE),
     mergeMap(async (action: any) => {
       try {
-        console.log("action.payload.startTime", action.payload)
         const axiosInstance = defaultAxios()
         var response: AxiosResponse<Response.User> = await axiosInstance.post(`/cycle?uuid=${action.payload.userId}`, {
           startTime: action.payload.startTime,

@@ -5,5 +5,5 @@ export interface StoreState {
   oidc: UserState,
   routing: RouterState,
   nutrition: any
-  uuid: any
+  loginReducer: any
 }

@@ -9,5 +9,5 @@ export default combineReducers<StoreState>({
   oidc: oidcReducer,
   routing: routerReducer,
   nutrition: nutritionReducer,
-  uuid: loginReducer
+  loginReducer
 })
