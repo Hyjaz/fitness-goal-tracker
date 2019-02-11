@@ -5,6 +5,7 @@ import * as React from 'react'
 import { Avatar, Menu, MenuItem, withStyles } from '@material-ui/core'
 
 import Logout from '../logout/container'
+import { withRouter } from 'react-router';
 
 const styles = {
   bigAvatar: {
@@ -14,7 +15,6 @@ const styles = {
   },
 };
 class Settings extends React.Component<any, any> {
-
   state = {
     anchorEl: null,
   };
@@ -26,6 +26,9 @@ class Settings extends React.Component<any, any> {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+  handleAddCycle = () => {
+    this.props.history.push('/cycle')
+  }
   render() {
     const { classes } = this.props
     const { anchorEl } = this.state
@@ -45,7 +48,7 @@ class Settings extends React.Component<any, any> {
             },
           }}
         >
-          <MenuItem onClick={this.handleClose}>Add cycle</MenuItem>
+          <MenuItem onClick={this.handleAddCycle}>Add cycle</MenuItem>
           <MenuItem onClick={this.handleClose}><Logout /></MenuItem>
         </Menu>
       </div>
@@ -53,4 +56,4 @@ class Settings extends React.Component<any, any> {
   }
 }
 
-export default withStyles(styles)(Settings);
+export default withStyles(styles)(withRouter(Settings));

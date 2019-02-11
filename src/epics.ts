@@ -1,7 +1,8 @@
 import 'rxjs'
 
-import * as CycleEpics from './nutrition/epics'
+import * as CycleEpics from './cycle/epics'
 import * as _ from 'lodash'
+import * as loginEpics from './login/epics'
 
 import axios from 'axios'
 
@@ -12,7 +13,8 @@ export function getAxios() {
 const initialEpicFunctions: any = []
 
 const ListEpics = [
-  CycleEpics
+  CycleEpics,
+  loginEpics
 ]
 
 export const epics = _.reduce(ListEpics, (result: any, epic: any) => _.concat(result, _.values(epic)), initialEpicFunctions)

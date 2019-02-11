@@ -1,9 +1,10 @@
 import './styles.scss'
 
 import * as React from 'react'
+
+import Settings from '../settings/component'
 import { StoreState } from '../types'
 import { connect } from 'react-redux'
-import Settings from '../settings/component'
 
 const mapStateToProps = (state: StoreState) => {
   return {

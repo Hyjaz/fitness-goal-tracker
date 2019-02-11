@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-import Cycle from './cycle/container'
+import CycleList from '../cycle/cycleList/container'
 
-export default class Nutrition extends React.Component {
+export default class Nutrition extends React.Component<any, any> {
   public render() {
     return (
       <div className='nutrition'>
-        <Cycle />
+        <CycleList />
       </div>
     )
   }

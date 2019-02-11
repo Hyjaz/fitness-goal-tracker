@@ -1,4 +1,4 @@
-export declare module namespace {
+declare module 'fitness-goal-tracker' {
 
   export interface MacroNutrient {
     _id: string;
