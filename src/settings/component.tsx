@@ -4,8 +4,8 @@ import * as React from 'react'
 
 import { Avatar, Menu, MenuItem, withStyles } from '@material-ui/core'
 
-import Logout from '../logout/container'
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router'
+import userManager from '../userManager'
 
 const styles = {
   bigAvatar: {
@@ -19,12 +19,17 @@ class Settings extends React.Component<any, any> {
     anchorEl: null,
   };
 
-  handleClick = (event: any) => {
+  handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     this.setState({ anchorEl: event.currentTarget });
   };
-
   handleClose = () => {
     this.setState({ anchorEl: null });
+  }
+  handleLogout = () => {
+    this.setState({ anchorEl: null });
+    userManager.removeUser().then(() => {
+        this.props.history.push('/')
+      })
   };
   handleAddCycle = () => {
     this.props.history.push('/cycle')
@@ -49,7 +54,7 @@ class Settings extends React.Component<any, any> {
           }}
         >
           <MenuItem onClick={this.handleAddCycle}>Add cycle</MenuItem>
-          <MenuItem onClick={this.handleClose}><Logout /></MenuItem>
+          <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
         </Menu>
       </div>
     )

@@ -10,7 +10,7 @@ import { DateRangePicker } from 'react-dates'
 import { Moment } from 'moment'
 import { StoreState } from '../types'
 import { connect } from 'react-redux';
-
+import { RouterProps } from 'react-router'
 import moment = require('moment');
 
 const mapDispatchToProps = {
@@ -22,13 +22,15 @@ interface DataRangePickerState {
   endDate: Moment,
   focusedInput: any
 }
-class Cycle extends React.Component<any & CycleAction> {
+
+class Cycle extends React.Component<RouterProps & StoreState & CycleAction, DataRangePickerState> {
   state: DataRangePickerState = {
     open: false,
     startDate: moment(),
     endDate: moment(),
     focusedInput: null
   };
+
   handleClickOpen = async () => {
     this.setState({ open: true });
     this.props.addCycle(this.props.oidc.user ? this.props.oidc.user.profile.sub : null,
@@ -51,7 +53,7 @@ class Cycle extends React.Component<any & CycleAction> {
               startDateId="your_unique_start_date_id"
               endDate={this.state.endDate}
               endDateId="your_unique_end_date_id"
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+              onDatesChange={() => this.setState({ startDate: this.state.startDate, endDate: this.state.endDate })}
               focusedInput={this.state.focusedInput}
               onFocusChange={focusedInput => this.setState({ focusedInput })}
             />

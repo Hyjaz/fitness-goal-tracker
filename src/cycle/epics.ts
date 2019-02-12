@@ -11,6 +11,7 @@ import { ofType } from 'redux-observable'
 
 const { GET_CYCLES, GET_CYCLES_SUCCESS, GET_CYCLES_FAIL,
   ADD_CYCLE, ADD_CYCLE_FAIL, ADD_CYCLE_SUCCESS } = actionNames
+  
 export function getCycles(action$: any) {
   return action$.pipe(
     ofType(GET_CYCLES),
