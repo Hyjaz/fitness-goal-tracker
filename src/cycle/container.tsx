@@ -18,15 +18,15 @@ import moment = require('moment');
 const mapDispatchToProps = {
   ...CycleActions
 }
-interface DataRangePickerState {
+interface DateRangePickerState {
   open: boolean,
   startDate: Moment | null,
   endDate: Moment | null,
   focusedInput: any
 }
 
-class Cycle extends React.Component<RouterProps & StoreState & CycleAction, DataRangePickerState> {
-  state: DataRangePickerState = {
+class Cycle extends React.Component<RouterProps & StoreState & CycleAction, DateRangePickerState> {
+  state: DateRangePickerState = {
     open: false,
     startDate: moment(),
     endDate: moment(),
