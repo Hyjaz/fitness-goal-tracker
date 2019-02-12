@@ -4,13 +4,15 @@ import './styles.scss'
 import * as CycleActions from './actions'
 import * as React from 'react'
 
+import { Redirect, RouterProps } from 'react-router'
+
 import { Button } from '@material-ui/core';
 import { CycleAction } from './actions';
 import { DateRangePicker } from 'react-dates'
 import { Moment } from 'moment'
 import { StoreState } from '../types'
 import { connect } from 'react-redux';
-import { RouterProps, Redirect } from 'react-router'
+
 import moment = require('moment');
 
 const mapDispatchToProps = {
@@ -18,12 +20,12 @@ const mapDispatchToProps = {
 }
 interface DataRangePickerState {
   open: boolean,
-  startDate: Moment,
-  endDate: Moment,
+  startDate: Moment | null,
+  endDate: Moment | null,
   focusedInput: any
 }
 
-class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
+class Cycle extends React.Component<RouterProps & StoreState & CycleAction, DataRangePickerState> {
   state: DataRangePickerState = {
     open: false,
     startDate: moment(),
@@ -34,8 +36,8 @@ class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
   handleClickOpen = async () => {
     this.setState({ open: true });
     this.props.addCycle(this.props.oidc.user ? this.props.oidc.user.profile.sub : null,
-      this.state.startDate.unix().toString(),
-      this.state.endDate.unix().toString())
+      this.state.startDate ? this.state.startDate.unix().toString() : "",
+      this.state.endDate? this.state.endDate.unix().toString() : "")
   };
 
   handleClose = () => {
