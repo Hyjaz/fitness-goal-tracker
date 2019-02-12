@@ -10,7 +10,7 @@ import { DateRangePicker } from 'react-dates'
 import { Moment } from 'moment'
 import { StoreState } from '../types'
 import { connect } from 'react-redux';
-import { RouterProps } from 'react-router'
+import { RouterProps, Redirect } from 'react-router'
 import moment = require('moment');
 
 const mapDispatchToProps = {
@@ -36,7 +36,6 @@ class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
     this.props.addCycle(this.props.oidc.user ? this.props.oidc.user.profile.sub : null,
       this.state.startDate.unix().toString(),
       this.state.endDate.unix().toString())
-    this.props.history.push('/dashboard')
   };
 
   handleClose = () => {
@@ -44,7 +43,9 @@ class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
   };
 
   render() {
-    return (
+    console.log(this.props.nutrition)
+    return this.props.nutrition.isAddCycle ? 
+    <Redirect to="/dashboard" /> : (
       <div className='cycle'>
         <div className='cycle_date_picker'>
           <div className='cycle_date_picker_inner'>
@@ -65,7 +66,7 @@ class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
         </Button>
         </div>
       </div>
-    );
+    )
   }
 }
 

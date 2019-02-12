@@ -1,5 +1,7 @@
 const initialState = {
-  cycles: []
+  cycles: [],
+  isAddCycle: false,
+  isGetCycle: false
 }
 
 import * as Cycle from './actionNames'
@@ -7,7 +9,9 @@ import * as Cycle from './actionNames'
 const {
   ADD_CYCLE,
   GET_CYCLES_SUCCESS,
-  ADD_CYCLE_SUCCESS
+  GET_CYCLES_FAIL,
+  ADD_CYCLE_SUCCESS,
+  ADD_CYCLE_FAIL
 } = Cycle
 
 export default function (state = initialState, action: any) {
@@ -20,12 +24,30 @@ export default function (state = initialState, action: any) {
     case GET_CYCLES_SUCCESS:
       return {
         ...state,
-        cycles: action.payload
+        cycles: action.payload,
+        isGetCycle: true,
+        isAddCycle: false
+      }
+    case GET_CYCLES_FAIL:
+      return {
+        ...state,
+        cycles: action.payload,
+        isGetCycle: false,
+        isAddCycle: false
       }
     case ADD_CYCLE_SUCCESS:
       return {
         ...state,
-        cycles: action.payload
+        cycles: action.payload,
+        isAddCycle: true,
+        isGetCycle: false,
+      }
+    case ADD_CYCLE_FAIL:
+      return {
+        ...state,
+        cycles: action.payload,
+        isAddCycle: false,
+        isGetCycle: false,
       }
     default:
       return {
