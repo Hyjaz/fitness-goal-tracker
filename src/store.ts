@@ -17,12 +17,15 @@ const rootEpic = combineEpics(..._.values(epics))
 const epicMiddleware = createEpicMiddleware()
 const history = createHistory();
 const middlewares: Middleware[] = []
-if (process.env.NODE_ENV !== 'production') middlewares.push(logger)
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(logger)
+}
 middlewares.push(epicMiddleware)
 
 const store = createStore<StoreState, any, {}, {}>(
   rootReducer,
-  composeWithDevTools(applyMiddleware(...middlewares, routerMiddleware(history))),
+  process.env.NODE_ENV == 'production' ? applyMiddleware(...middlewares, routerMiddleware(history))
+                                          : composeWithDevTools(applyMiddleware(...middlewares, routerMiddleware(history))),
 )
 epicMiddleware.run(rootEpic)
 loadUser(store, userManager);

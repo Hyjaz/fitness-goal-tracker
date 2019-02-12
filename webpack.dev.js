@@ -15,7 +15,6 @@ module.exports = merge({
       warnings: true,
       errors: true
     },
-    https: true,
     open: true,
   },
   plugins: [

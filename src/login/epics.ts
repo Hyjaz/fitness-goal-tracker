@@ -4,7 +4,7 @@ import * as Response from 'fitness-goal-tracker'
 import * as cycleNames from './actionNames'
 
 import { AxiosResponse } from 'axios'
-import { defaultAxios } from '../axiosConfig'
+import { a as Axios  } from '../axiosHelper'
 import { ofType } from 'redux-observable'
 import { switchMap } from 'rxjs/operators'
 
@@ -14,8 +14,7 @@ export function addUserIfNotExists(action$: any) {
     ofType(ADD_USERIFNOTEXISTS),
     switchMap(async (action: any) => {
       try {
-        const axiosInstance = defaultAxios()
-        var response: AxiosResponse<Response.User> = await axiosInstance.get(`?uuid=${action.payload.userId}`)
+        var response: AxiosResponse<Response.User> = await Axios.get(`?uuid=${action.payload.userId}`)
         return {
           type: ADD_USERIFNOTEXISTS_SUCCESS,
           payload: response.data.uuid

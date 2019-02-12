@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 var axiosInstance: AxiosInstance
 
-export function defaultAxios(): AxiosInstance {
+const getAxiosInstance = (): AxiosInstance => {
   const baseURL = `http://${process.env.BASEURL}`
   if (axiosInstance) {
     return axiosInstance
@@ -9,3 +9,5 @@ export function defaultAxios(): AxiosInstance {
   axiosInstance = axios.create({ baseURL })
   return axiosInstance
 }
+
+export const a = getAxiosInstance()

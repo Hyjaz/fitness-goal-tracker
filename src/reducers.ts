@@ -7,7 +7,7 @@ import { routerReducer } from 'react-router-redux'
 
 export default combineReducers<StoreState>({
   oidc: oidcReducer,
-  routing: routerReducer,
+  router: routerReducer,
   nutrition: nutritionReducer,
   loginReducer
 })

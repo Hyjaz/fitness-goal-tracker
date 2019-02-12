@@ -23,7 +23,7 @@ interface DataRangePickerState {
   focusedInput: any
 }
 
-class Cycle extends React.Component<RouterProps & StoreState & CycleAction, DataRangePickerState> {
+class Cycle extends React.Component<RouterProps & StoreState & CycleAction> {
   state: DataRangePickerState = {
     open: false,
     startDate: moment(),
@@ -53,7 +53,7 @@ class Cycle extends React.Component<RouterProps & StoreState & CycleAction, Data
               startDateId="your_unique_start_date_id"
               endDate={this.state.endDate}
               endDateId="your_unique_end_date_id"
-              onDatesChange={() => this.setState({ startDate: this.state.startDate, endDate: this.state.endDate })}
+              onDatesChange={({startDate, endDate}) => this.setState({ startDate, endDate })}
               focusedInput={this.state.focusedInput}
               onFocusChange={focusedInput => this.setState({ focusedInput })}
             />

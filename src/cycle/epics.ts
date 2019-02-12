@@ -6,19 +6,18 @@ import * as actionNames from './actionNames'
 import { mergeMap, switchMap } from 'rxjs/operators'
 
 import { AxiosResponse } from 'axios'
-import { defaultAxios } from '../axiosConfig'
+import { a as Axios } from '../axiosHelper'
 import { ofType } from 'redux-observable'
 
 const { GET_CYCLES, GET_CYCLES_SUCCESS, GET_CYCLES_FAIL,
   ADD_CYCLE, ADD_CYCLE_FAIL, ADD_CYCLE_SUCCESS } = actionNames
-  
+
 export function getCycles(action$: any) {
   return action$.pipe(
     ofType(GET_CYCLES),
     switchMap(async (action: any) => {
       try {
-        const axiosInstance = defaultAxios()
-        var response: AxiosResponse<Response.User> = await axiosInstance.get(`?uuid=${action.payload.userId}`)
+        var response: AxiosResponse<Response.User> = await Axios.get(`?uuid=${action.payload.userId}`)
         return {
           type: GET_CYCLES_SUCCESS,
           payload: response.data.cycles
@@ -38,8 +37,7 @@ export function addCycle(action$: any) {
     ofType(ADD_CYCLE),
     mergeMap(async (action: any) => {
       try {
-        const axiosInstance = defaultAxios()
-        var response: AxiosResponse<Response.User> = await axiosInstance.post(`/cycle?uuid=${action.payload.userId}`, {
+        var response: AxiosResponse<Response.User> = await Axios.post(`/cycle?uuid=${action.payload.userId}`, {
           startTime: action.payload.startTime,
           endTime: action.payload.endTime
         })

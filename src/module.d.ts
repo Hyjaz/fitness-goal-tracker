@@ -28,4 +28,3 @@ declare module 'fitness-goal-tracker' {
   }
 
 }
-
