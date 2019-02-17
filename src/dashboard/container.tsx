@@ -3,7 +3,7 @@ import * as cycleActions from '../cycle/actions'
 
 import Diagram from '../diagrams/component'
 import Navbar from '../navbar/container'
-import Nutrition from '../nutrition/component'
+import Nutrition from '../nutrition/container'
 import { StoreState } from '../types';
 import { User } from 'oidc-client';
 import { connect } from 'react-redux'
@@ -20,7 +20,8 @@ class Dashboard extends React.Component<any, any> {
       if (!user) {
         return this.props.history.push('/')
       }
-      return this.props.getCycles(user.profile.sub)
+
+      return this.props.getCycles(user.profile.sub.toString())
     })
   }
 
@@ -28,7 +29,7 @@ class Dashboard extends React.Component<any, any> {
     return (
       <div>
         <div className='outer_container'>
-          <Navbar />
+          <Navbar title={'Dashboard'} />
           <Diagram />
           <Nutrition />
         </div>
@@ -37,4 +38,4 @@ class Dashboard extends React.Component<any, any> {
   }
 }
 
-export default connect((state: StoreState) => ({ ...state }), mapDispatchToProps)(withRouter(Dashboard))
+export default connect<StoreState, any>((state: StoreState) => ({ ...state }), mapDispatchToProps)(withRouter(Dashboard))

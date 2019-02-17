@@ -4,8 +4,8 @@ import * as React from 'react'
 
 import { Avatar, Menu, MenuItem, withStyles } from '@material-ui/core'
 
-import { withRouter } from 'react-router'
 import userManager from '../userManager'
+import { withRouter } from 'react-router'
 
 const styles = {
   bigAvatar: {
@@ -28,11 +28,17 @@ class Settings extends React.Component<any, any> {
   handleLogout = () => {
     this.setState({ anchorEl: null });
     userManager.removeUser().then(() => {
-        this.props.history.push('/')
-      })
+      this.props.history.push('/')
+    })
   };
   handleAddCycle = () => {
     this.props.history.push('/cycle')
+  }
+  handleDashboard = () => {
+    this.props.history.push('/dashboard')
+  }
+  handleCyclesHistory = () => {
+    this.props.history.push('/history')
   }
   render() {
     const { classes } = this.props
@@ -54,6 +60,8 @@ class Settings extends React.Component<any, any> {
           }}
         >
           <MenuItem onClick={this.handleAddCycle}>Add cycle</MenuItem>
+          <MenuItem onClick={this.handleDashboard}>Dashboard</MenuItem>
+          <MenuItem onClick={this.handleCyclesHistory}>History</MenuItem>
           <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
         </Menu>
       </div>

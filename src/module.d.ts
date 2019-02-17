@@ -26,5 +26,4 @@ declare module 'fitness-goal-tracker' {
     uuid: string;
     cycles: Cycle[];
   }
-
 }

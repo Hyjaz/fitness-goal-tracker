@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Callback from './callback/container'
 import Cycle from './cycle/container'
+import CyclesHistory from './history/container'
 import Dashboard from './dashboard/container'
 import Login from './login/container'
 
@@ -19,6 +20,7 @@ export default class App extends React.Component<any, any>{
           <Route exact path='/cycle' component={Cycle} />
           <Route path="/callback" component={Callback} />
           <Route path='/dashboard' component={Dashboard} />
+          <Route path='/history' component={CyclesHistory} />
         </Switch>
       </BrowserRouter>
     )
