@@ -55,7 +55,7 @@ class Settings extends React.Component<any, any> {
             style: {
               padding: 0,
               left: '50%',
-              transform: 'translate(-15%, 43%)'
+              transform: 'translate(-15%, 25%)'
             },
           }}
         >

@@ -4,7 +4,7 @@ import './styles.scss'
 import * as CycleActions from './actions'
 import * as React from 'react'
 
-import Button from '../StyledButton'
+import Button from '../muioverrides/Button'
 import { CycleAction } from './actions'
 import { DateRangePicker } from 'react-dates'
 import { Moment } from 'moment'
