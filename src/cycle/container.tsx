@@ -65,7 +65,7 @@ class Cycle extends React.Component<StoreState & CycleAction, DateRangePickerSta
               <div className='cycle_button'>
                 <Button variant='contained' color='primary' onClick={this.handleClickOpen}>
                   Add Cycle
-            </Button>
+                </Button>
               </div>
             </div>
           </div>
