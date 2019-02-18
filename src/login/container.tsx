@@ -2,7 +2,7 @@ import './styles.scss'
 
 import * as React from 'react'
 
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
 import userManager from '../userManager'
 import { withRouter } from 'react-router-dom'
 

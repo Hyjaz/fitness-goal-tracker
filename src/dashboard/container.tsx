@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as cycleActions from '../cycle/actions'
 
-import Diagram from '../diagrams/component'
+// import Diagram from '../diagrams/component'
 import Navbar from '../navbar/container'
 import Nutrition from '../nutrition/container'
 import { StoreState } from '../types';
@@ -20,8 +20,7 @@ class Dashboard extends React.Component<any, any> {
       if (!user) {
         return this.props.history.push('/')
       }
-
-      return this.props.getCycles(user.profile.sub.toString())
+      return this.props.getCycles(user.profile.sub)
     })
   }
 
@@ -29,8 +28,8 @@ class Dashboard extends React.Component<any, any> {
     return (
       <div>
         <div className='outer_container'>
-          <Navbar title={'Dashboard'} />
-          <Diagram />
+          <Navbar title={'Dashboard'}/>
+          {/* <Diagram /> */}
           <Nutrition />
         </div>
       </div >
@@ -38,4 +37,4 @@ class Dashboard extends React.Component<any, any> {
   }
 }
 
-export default connect<StoreState, any>((state: StoreState) => ({ ...state }), mapDispatchToProps)(withRouter(Dashboard))
+export default connect((state: StoreState) => ({ ...state }), mapDispatchToProps)(withRouter(Dashboard))

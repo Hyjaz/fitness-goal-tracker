@@ -1,12 +1,12 @@
 import * as actionNames from './actionNames'
+import { createAction } from '../types';
 
 const {
   ADD_USERIFNOTEXISTS
 } = actionNames
 
-export function addUserIfNotExists(sub: string) {
-  return {
-    type: ADD_USERIFNOTEXISTS,
-    payload: sub
-  }
+export const addUserIfNotExists = (sub: string) => createAction(ADD_USERIFNOTEXISTS, {sub})
+
+export interface LoginActions {
+  addUserIfNotExists(sub: string) : any
 }
