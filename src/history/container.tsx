@@ -16,8 +16,7 @@ import { withStyles } from '@material-ui/core'
 
 const styles = () => ({
   root: {
-    display: 'grid',
-    justifyContent: 'center',
+    display: 'table',
     width: '100%',
     backgroundColor: '#fbfbfb'
   }
@@ -58,10 +57,8 @@ class CyclesHistory extends React.Component<any, any>{
           <Navbar title={'History'} />
           <div className='outer-history'>
             <div className='inner-history'>
-              <div className='inner-inner-history'>
-                <div className={classes.root}>
-                  {allCycles}
-                </div>
+              <div className={classes.root}>
+                {allCycles}
               </div>
             </div>
           </div>

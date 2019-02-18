@@ -7,10 +7,13 @@
 
 .inner-history {
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  // grid-template-columns: 1fr 6fr 1fr;
   grid-column: 2/3;
 }
 
-.inner-inner-history {
-  grid-column: 2/3;
+ul {
+  div {
+    display: grid;
+    justify-content: center;
+  }
 }
