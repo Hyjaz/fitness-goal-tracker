@@ -42,10 +42,10 @@ class CyclesHistory extends React.Component<any, any>{
       .sort((a: Cycle, b: Cycle) => moment(a.startTime).toDate().getTime() - moment(b.startTime).toDate().getTime())
       .map((cycle: Cycle, index: number) => {
         return (
-          <List key={index}>
+          <List key={cycle._id}>
             <ListItem button onClick={this.handleCycleId.bind(null, cycle._id)}>
               <ListItemText>
-                {cycle._id} - {moment(cycle.startTime).toDate().toLocaleString()} | {moment(cycle.endTime).toDate().toLocaleString()}
+                {cycle.name} - {moment(cycle.startTime).toDate().toLocaleString()} | {moment(cycle.endTime).toDate().toLocaleString()}
               </ListItemText>
             </ListItem>
           </List>

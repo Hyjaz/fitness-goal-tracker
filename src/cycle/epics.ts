@@ -38,6 +38,7 @@ export function addCycle(action$: any) {
     mergeMap(async (action: any) => {
       try {
         var response: AxiosResponse<Response.User> = await Axios.post(`/cycle?uuid=${action.payload.userId}`, {
+          name: action.payload.name,
           startTime: action.payload.startTime,
           endTime: action.payload.endTime
         })

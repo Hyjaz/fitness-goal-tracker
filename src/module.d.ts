@@ -17,6 +17,7 @@ declare module 'fitness-goal-tracker' {
 
   export interface Cycle {
     _id: string;
+    name: string;
     startTime: Date;
     endTime: Date;
     dailyIntakes: DailyIntake[];
