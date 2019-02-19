@@ -4,6 +4,8 @@ import './styles.scss'
 import * as CycleActions from './actions'
 import * as React from 'react'
 
+import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+
 import Button from '../muioverrides/Button'
 import { CycleAction } from './actions'
 import { DateRangePicker } from 'react-dates'
@@ -11,11 +13,10 @@ import { Moment } from 'moment'
 import Navbar from '../navbar/container'
 import { Redirect } from 'react-router'
 import { StoreState } from '../types'
+import TextField from '@material-ui/core/TextField';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { connect } from 'react-redux'
 import green from '@material-ui/core/colors/green';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import TextField from '@material-ui/core/TextField';
 
 const mapDispatchToProps = {
   ...CycleActions
@@ -29,8 +30,7 @@ interface DateRangePickerState {
 }
 const styles = (theme: Theme) => ({
   margin: {
-    marginTop: '1rem',
-    width: '100%'
+    width: '99%'
   },
   cssLabel: {
     '&$cssFocused': {
@@ -44,8 +44,8 @@ const styles = (theme: Theme) => ({
     },
   },
 })
- 
-class Cycle extends React.Component<WithStyles &  StoreState & CycleAction, DateRangePickerState> {
+
+class Cycle extends React.Component<WithStyles & StoreState & CycleAction, DateRangePickerState> {
   state: DateRangePickerState = {
     open: false,
     startDate: null,
@@ -66,18 +66,18 @@ class Cycle extends React.Component<WithStyles &  StoreState & CycleAction, Date
     this.setState({ open: false });
   };
   handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    this.setState({cycleName: event.target.value})
+    this.setState({ cycleName: event.target.value })
   }
   render(): JSX.Element {
-    const {classes } = this.props
+    const { classes } = this.props
     return this.props.nutrition.isAddCycle ?
       <Redirect to="/dashboard" /> : (
         <div>
           <div className='outer_container'>
             <Navbar title={'Add Cycle'} />
-            <div className='input'>
-              <div className='inner-input' >
-                <div className='inner-inner-input' >
+            <div className='cycle' >
+              <div className='cycle_date_picker'>
+                <div className='input' >
                   <TextField
                     className={classes.margin}
                     InputLabelProps={{
@@ -95,13 +95,9 @@ class Cycle extends React.Component<WithStyles &  StoreState & CycleAction, Date
                     }}
                     label="Give your cycle a title"
                     variant="outlined"
-                    id="custom-css-outlined-input" 
-                    onChange={this.handleOnChange}/>
+                    id="custom-css-outlined-input"
+                    onChange={this.handleOnChange} />
                 </div>
-              </div>
-            </div>
-            <div className='cycle' >
-              <div className='cycle_date_picker'>
                 <div className='cycle_date_picker_inner'>
                   <DateRangePicker
                     startDate={this.state.startDate}
@@ -113,15 +109,16 @@ class Cycle extends React.Component<WithStyles &  StoreState & CycleAction, Date
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                   />
                 </div>
-              </div>
-              <div className='cycle_button'>
-                <Button variant='contained' color='primary' onClick={this.handleClickOpen}>
-                  Add Cycle
+                <div className='cycle_button'>
+                  <Button variant='contained' color='primary' onClick={this.handleClickOpen}>
+                    Add Cycle
                 </Button>
+                </div>
               </div>
+
             </div>
-          </div>
-        </div>
+          </div >
+        </div >
       )
   }
 }

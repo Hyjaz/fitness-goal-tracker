@@ -21,12 +21,13 @@ class Callback extends React.Component<StoreState & LoginActions, OwnState> {
     wasCalled: false
   }
   onSuccess = () => {
-    this.props.addUserIfNotExists(this.props.oidc.user ? this.props.oidc.user.profile.sub : null)
-    this.setState({ isSuccess: true, wasCalled: true })
+    if (this.props.oidc.user) {
+      this.setState({ isSuccess: true, wasCalled: true })
+      return this.props.addUserIfNotExists(this.props.oidc.user.profile.sub)
+    }
   }
 
   onFailure = (error: Error) => {
-    console.log(error)
     this.setState({ isSuccess: false, wasCalled: true })
   }
 
@@ -40,7 +41,6 @@ class Callback extends React.Component<StoreState & LoginActions, OwnState> {
       >
         <div>
           Redirecting...
-
         </div>
       </CallbackComponent>
     );

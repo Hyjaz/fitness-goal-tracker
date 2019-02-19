@@ -3,8 +3,8 @@ import 'rxjs'
 import * as Response from 'fitness-goal-tracker'
 import * as cycleNames from './actionNames'
 
+import { a as Axios } from '../axiosHelper'
 import { AxiosResponse } from 'axios'
-import { a as Axios  } from '../axiosHelper'
 import { ofType } from 'redux-observable'
 import { switchMap } from 'rxjs/operators'
 
@@ -14,10 +14,13 @@ export function addUserIfNotExists(action$: any) {
     ofType(ADD_USERIFNOTEXISTS),
     switchMap(async (action: any) => {
       try {
-        var response: AxiosResponse<Response.User> = await Axios.get(`?uuid=${action.payload.userId}`)
+        var response: AxiosResponse<Response.User> = await Axios.get(`?uuid=${action.payload.sub}`)
         return {
           type: ADD_USERIFNOTEXISTS_SUCCESS,
           payload: response.data.uuid
+        }
+        return {
+          type: ADD_USERIFNOTEXISTS_FAIL,
         }
       } catch (e) {
         return {

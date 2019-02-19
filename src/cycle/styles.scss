@@ -1,6 +1,6 @@
 .cycle {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 6fr 1fr;
   margin-top: 1rem;
 }
 
@@ -11,12 +11,12 @@
 
 .cycle_date_picker {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-column: 2/3;
 }
-.cycle_date_picker_inner {
-  grid-column: 2/3;
-}
+// .cycle_date_picker_inner {
+//   grid-column: 2/3;
+// }
 // overwritten css from airbnb/react-dates
 .DateRangePickerInput {
   width: 100%;
@@ -30,16 +30,14 @@
   padding: 10px;
 }
 
-.input {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
+// .input {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+// }
 
-.inner-input {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-column: 2/3;
-}
-.inner-inner-input {
-  grid-column: 2/3;
-}
+// .input {
+//   grid-column: 1/3;
+// }
+// .inner-inner-input {
+//   grid-column: 2/3;
+// }

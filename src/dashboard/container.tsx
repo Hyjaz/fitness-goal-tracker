@@ -18,8 +18,10 @@ class Dashboard extends React.Component<any, any> {
   componentWillMount() {
     userManager.getUser().then((user: User) => {
       if (!user) {
+        console.log("in user")
         return this.props.history.push('/')
       }
+      console.log("in not user", user.profile.sub)
       return this.props.getCycles(user.profile.sub)
     })
   }
@@ -28,7 +30,7 @@ class Dashboard extends React.Component<any, any> {
     return (
       <div>
         <div className='outer_container'>
-          <Navbar title={'Dashboard'}/>
+          <Navbar title={'Dashboard'} />
           {/* <Diagram /> */}
           <Nutrition />
         </div>
